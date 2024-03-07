@@ -14,6 +14,7 @@ const Tokenomics = () => {
             <div className='flex flex-row items-left px-8 '>
                 <div className='w-[50%]'>
                     <DoughnutChart />
+                    {/* added a comment */}
                 </div>
             </div>
 
