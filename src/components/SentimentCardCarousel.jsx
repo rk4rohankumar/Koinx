@@ -4,57 +4,57 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const CardCarousel = ({ cards }) => {
-  const sliderRef = useRef(null);
+    const sliderRef = useRef(null);
 
-  const CustomArrow = ({ direction, ...props }) => (
-    <div {...props} className={`slick-arrow-custom slick-${direction}-custom`}>
-      {direction === 'prev' ? '<' : '>'}
-    </div>
-  );
+    const CustomArrow = ({ direction, ...props }) => (
+        <div {...props} className={`slick-arrow-custom slick-${direction}-custom`}>
+            {direction === 'prev' ? '<' : '>'}
+        </div>
+    );
 
-  const carouselSettings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToScroll: 1,
-    slidesToShow: 1,
-    prevArrow: <CustomArrow direction="prev" />,
-    nextArrow: <CustomArrow direction="next" />,
-    responsive: [
-      {
-        breakpoint: 766,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-      {
-        breakpoint: 9999,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-    ],
-  };
+    const carouselSettings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToScroll: 1,
+        slidesToShow: 1,
+        prevArrow: <CustomArrow direction="prev" />,
+        nextArrow: <CustomArrow direction="next" />,
+        responsive: [
+            {
+                breakpoint: 766,
+                settings: {
+                    slidesToShow: 1,
+                },
+            },
+            {
+                breakpoint: 9999,
+                settings: {
+                    slidesToShow: 2,
+                },
+            },
+        ],
+    };
 
-  return (
-    <div className="max-w-full md:max-w-4xl mx-auto relative">
-      <Slider {...carouselSettings} ref={sliderRef}>
-        {cards.map((card, index) => (
-          <div key={index} className="w-full">
-            <div className="max-w-full rounded overflow-hidden shadow-lg bg-green-100 relative flex p-4">
-              <div className="relative">
-                <img className="rounded-full p-2 max-w-20 h-auto  top-0 left-0" src={card.image} alt={`Card ${index + 1}`} />
-              </div>
-              <div className="ml-4 flex flex-col">
-                <div className="font-bold text-xl mb-2 mt-2">{card.title}</div>
-                <p className="text-gray-700 text-base mt-1">{card.description}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </Slider>
+    return (
+        <div className="max-w-full md:max-w-4xl mx-auto relative">
+            <Slider {...carouselSettings} ref={sliderRef}>
+                {cards.map((card, index) => (
+                    <div key={index} className="w-full">
+                        <div className="max-w-full rounded overflow-hidden shadow-lg bg-green-100 relative flex p-4">
+                            <div className="relative">
+                                <img className="rounded-full p-2 max-w-20 h-auto  top-0 left-0" src={card.image} alt={`Card ${index + 1}`} />
+                            </div>
+                            <div className="ml-4 flex flex-col">
+                                <div className="font-bold text-xl mb-2 mt-2">{card.title}</div>
+                                <p className="text-gray-700 text-base mt-1">{card.description}</p>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </Slider>
 
-      <style jsx>{`
+            <style jsx>{`
         .slick-arrow-custom {
           color: black;
           font-size: 24px;
@@ -97,8 +97,8 @@ const CardCarousel = ({ cards }) => {
           }
         }
       `}</style>
-    </div>
-  );
+        </div>
+    );
 };
 
 export default CardCarousel;

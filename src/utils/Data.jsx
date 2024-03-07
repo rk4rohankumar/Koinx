@@ -42,3 +42,15 @@ export const aboutBitcoinCardData = [
         buttonLabel: 'Check now',
     },
 ];
+
+export const doughnutData = {
+    labels: ["Crowdsale Investors: 80%", "Foundation: 20%"],
+    datasets: [
+        {
+            data: [80, 20],
+            backgroundColor: ["blue", "gold"],
+            borderColor: ["blue", "gold"],
+            borderWidth: 0.5,
+        },
+    ],
+};
