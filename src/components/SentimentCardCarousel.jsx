@@ -11,7 +11,7 @@ const CardCarousel = ({ cards }) => {
         const handleResize = () => {
             const windowWidth = window.innerWidth;
 
-            if (windowWidth >= 768) {
+            if (windowWidth >= 769) {
                 setSlidesToShow(2);
             } else {
                 setSlidesToShow(1);
@@ -53,11 +53,13 @@ const CardCarousel = ({ cards }) => {
                     <div key={index} className={`w-full ${slidesToShow === 1 ? 'p-4' : 'p-2'}`}>
                         <div className="max-w-full rounded overflow-hidden shadow-lg relative flex p-4" style={{ backgroundColor: card.bgColor, marginBottom: '16px' }}>
                             <div className="relative">
-                                <img className="rounded-full p-2 max-w-20 h-auto top-0 left-0" src={card.image} alt={`Card ${index + 1}`} />
+                                <img className={`rounded-full p-2 max-w-${slidesToShow === 1 ? '20' : '40'} h-auto top-0 left-0`} src={card.image} alt={`Card ${index + 1}`} />
                             </div>
                             <div className={`ml-${slidesToShow === 1 ? '4' : '2'} flex flex-col`}>
-                                <div className="font-bold text-xl mb-2 mt-2">{card.title}</div>
-                                <p className={`text-gray-700 text-base mt-1 ${slidesToShow === 1 ? 'max-w-xs' : 'max-w-md'}`}>{card.description}</p>
+                                <div className={`font-bold text-xl mb-2 mt-2 text-${slidesToShow === 1 ? 'md' : 'lg'}`}>{card.title}</div>
+                                <p className={`text-gray-700 text-base mt-1 ${slidesToShow === 1 ? 'max-w-xs' : 'max-w-md'}`}>
+                                    {card.description}
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -93,17 +95,22 @@ const CardCarousel = ({ cards }) => {
                         font-size: 32px;
                     }
 
-                    .slick-slide {
-                        display: flex;
-                        align-items: flex-start;
+                    .max-w-full {
+                        margin-right: 16px;
+                    }
+                }
+
+                @media (max-width: 767px) {
+                    .font-bold {
+                        font-size: 16px;
                     }
 
-                    .slick-active .slick-slide {
-                        margin-right: 16px; /* Adjust the margin as needed */
+                    .text-xl {
+                        font-size: 18px;
                     }
 
-                    .slick-active .max-w-full {
-                        margin-right: 0; /* Reset margin for active slide */
+                    .text-base {
+                        font-size: 14px;
                     }
                 }
             `}</style>
