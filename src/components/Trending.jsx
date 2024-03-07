@@ -26,14 +26,14 @@ const Trending = () => {
 
     return (
         <div>
-            <div className="flex flex-col bg-white shadow-md rounded-lg my-6 text-black text-xl">
+            <div className="flex flex-col bg-white shadow-md rounded-lg my-6 text-black text-md">
                 <div className="flex p-4 font-bold border-gray-300 text-2xl">
                     <div className="flex-1 text-xl my-2">
-                        <p className='text-2xl'>Trending Coins (24 Hr)</p>
+                        <p className='text-xl text-left'>Trending Coins (24 Hr)</p>
                     </div>
                 </div>
                 {filteredTrending.map((crypto, index) => (
-                    <div key={index} className="flex py-2 px-4 mb-2 items-center">
+                    <div key={index} className="flex px-4 items-center p-2 pb-3">
                         {crypto.item.small && (
                             <img
                                 src={crypto.item.small}
@@ -47,24 +47,22 @@ const Trending = () => {
                                 <div className="ml-2">({crypto.item.symbol})</div>
                             </div>
                         </div>
-                        <div  className={`flex items-center  p-2 mx-1 rounded-lg text-green-700 ${
-                            crypto.item.data.price_change_percentage_24h.usd >= 0
-                                ? `bg-green-100 text-green-700`
-                                : `bg-red-100  text-red-700`
-                        }`}>
+                        <div className="flex flex-row items-center p-0.5 mx-2 rounded-lg ">
                             {crypto.item.data.price_change_percentage_24h.usd >= 0 ? (
-                                <img src={greenArrow} alt="Upward arrow" className="w-4 h-4 mr-1" />
+                                <div className="mr-1 flex items-center text-green-700 bg-green-100 rounded-lg p-0.5">
+                                    <img src={greenArrow} alt="Upward arrow" className="w-4 h-4 mr-1" />
+                                    <div className="mr-1">
+                                        {Math.abs(crypto.item.data.price_change_percentage_24h.usd).toFixed(2)}%
+                                    </div>
+                                </div>
                             ) : (
-                                <img src={redArrow} alt="Downward arrow" className="w-4 h-4 mr-1" />
+                                <div className="mr-1 flex items-center text-red-700 bg-red-100 rounded-lg p-0.5">
+                                    <img src={redArrow} alt="Downward arrow" className="w-4 h-4 mr-1" />
+                                    <div className="mr-1">
+                                        {Math.abs(crypto.item.data.price_change_percentage_24h.usd).toFixed(2)}%
+                                    </div>
+                                </div>
                             )}
-                            <div className="mr-1">
-                                {Math.abs(crypto.item.data.price_change_percentage_24h.usd).toFixed(2)}%
-
-                               
-
-
-
-                            </div>
                         </div>
                     </div>
                 ))}
