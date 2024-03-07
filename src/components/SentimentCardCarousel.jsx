@@ -40,10 +40,10 @@ const CardCarousel = ({ cards }) => {
         <div className="max-w-full md:max-w-4xl mx-auto relative">
             <Slider {...carouselSettings} ref={sliderRef}>
                 {cards.map((card, index) => (
-                    <div key={index} className="w-full">
-                        <div className="max-w-full rounded overflow-hidden shadow-lg bg-green-100 relative flex p-4">
+                    <div key={index} className="w-full p-4">
+                        <div className="max-w-full rounded overflow-hidden shadow-lg relative flex p-4" style={{ backgroundColor: card.bgColor, marginBottom: '16px' }}>
                             <div className="relative">
-                                <img className="rounded-full p-2 max-w-20 h-auto  top-0 left-0" src={card.image} alt={`Card ${index + 1}`} />
+                                <img className="rounded-full p-2 max-w-20 h-auto top-0 left-0" src={card.image} alt={`Card ${index + 1}`} />
                             </div>
                             <div className="ml-4 flex flex-col">
                                 <div className="font-bold text-xl mb-2 mt-2">{card.title}</div>
@@ -55,48 +55,48 @@ const CardCarousel = ({ cards }) => {
             </Slider>
 
             <style jsx>{`
-        .slick-arrow-custom {
-          color: black;
-          font-size: 24px;
-          line-height: 1;
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          cursor: pointer;
-          z-index: 1;
-          background-color: white;
-          border-radius: 50%;
-          padding: 12px;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+                .slick-arrow-custom {
+                    color: black;
+                    font-size: 24px;
+                    line-height: 1;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    cursor: pointer;
+                    z-index: 1;
+                    background-color: white;
+                    border-radius: 50%;
+                    padding: 12px;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                }
 
-        .slick-prev-custom {
-          left: 20px;
-        }
+                .slick-prev-custom {
+                    left: 20px;
+                }
 
-        .slick-next-custom {
-          right: 20px;
-        }
+                .slick-next-custom {
+                    right: 20px;
+                }
 
-        @media (min-width: 768px) {
-          .slick-arrow-custom {
-            font-size: 32px;
-          }
+                @media (min-width: 768px) {
+                    .slick-arrow-custom {
+                        font-size: 32px;
+                    }
 
-          .slick-slide {
-            display: flex;
-            align-items: flex-start;
-          }
+                    .slick-slide {
+                        display: flex;
+                        align-items: flex-start;
+                    }
 
-          .slick-active .slick-slide {
-            margin-right: 16px; /* Adjust the margin as needed */
-          }
+                    .slick-active .slick-slide {
+                        margin-right: 16px; /* Adjust the margin as needed */
+                    }
 
-          .slick-active .max-w-full {
-            margin-right: 0; /* Reset margin for active slide */
-          }
-        }
-      `}</style>
+                    .slick-active .max-w-full {
+                        margin-right: 0; /* Reset margin for active slide */
+                    }
+                }
+            `}</style>
         </div>
     );
 };
