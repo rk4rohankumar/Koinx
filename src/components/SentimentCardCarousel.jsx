@@ -20,20 +20,7 @@ const CardCarousel = ({ cards }) => {
         slidesToShow: 1,
         prevArrow: <CustomArrow direction="prev" />,
         nextArrow: <CustomArrow direction="next" />,
-        responsive: [
-            {
-                breakpoint: 766,
-                settings: {
-                    slidesToShow: 1,
-                },
-            },
-            {
-                breakpoint: 9999,
-                settings: {
-                    slidesToShow: 2,
-                },
-            },
-        ],
+        
     };
 
     return (

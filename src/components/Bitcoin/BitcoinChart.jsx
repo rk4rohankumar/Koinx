@@ -3,32 +3,6 @@ import React, { useEffect, useRef, memo, useState } from 'react';
 const TradingViewWidget = () => {
     const container = useRef();
 
-    const [widgetHeight, setWidgetHeight] = useState(600);
-
-    useEffect(() => {
-        const handleResize = () => {
-            const windowWidth = window.innerWidth;
-
-            // Adjust height based on window width
-            if (windowWidth < 768) {
-                setWidgetHeight(400);
-            } else {
-                setWidgetHeight(600);
-            }
-        };
-
-        // Initial call to handleResize
-        handleResize();
-
-        // Add event listener for window resize
-        window.addEventListener('resize', handleResize);
-
-        // Clean up event listener on component unmount
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
-
     useEffect(() => {
         const script = document.createElement("script");
         script.src = "https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js";
@@ -37,7 +11,7 @@ const TradingViewWidget = () => {
         script.innerHTML = JSON.stringify({
             symbols: [["COINBASE:BTCUSD|1D"]],
             width: '100%',
-            height: widgetHeight,
+            height: 600,
             locale: "en",
             colorTheme: "light",
             autosize: false,
@@ -62,7 +36,7 @@ const TradingViewWidget = () => {
             dateRanges: ["1d|1", "1m|30", "3m|60", "12m|1D", "60m|1W", "all|1M"],
         });
         container.current.appendChild(script);
-    }, [widgetHeight]);
+    }, []);
 
     return (
         <div className="tradingview-widget-container rounded-lg" ref={container}>
