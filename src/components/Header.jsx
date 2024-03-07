@@ -32,7 +32,7 @@ const Header = () => {
             </div>
             <div className='md:hidden'>
                 <button onClick={toggleMenu} className="text-blue-600 bg-gray-100 py-2 rounded-md text-black px-4 text-lg hover:text-blue-500">
-                Menu
+                <img className="w-[20px]" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1024px-Hamburger_icon.svg.png" alt=" "/>
                 </button>
                 {isOpen && (
                     <div className="fixed top-0 right-0 m-4 z-50">
