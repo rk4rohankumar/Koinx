@@ -24,9 +24,9 @@ const AboutBitcoin = () => {
                     <div className='mx-3 mb-3 '>
                         <h1 className='text-3xl'>Already holding Bitcoin?</h1>
                     </div>
-                    <div className='flex border-b-2 pb-3 grid sm:grid-cols-1 lg:grid-cols-2'>
-                        <AboutCard props ={aboutBitcoinCardData} />
-                        <AboutCard props ={aboutBitcoinCardData}/>
+                    <div className='flex border-b-2 pb-3'>
+                        <AboutBitcoinCard props ={aboutBitcoinCardData} />
+                        <AboutBitcoinCard props ={aboutBitcoinCardData}/>
                     </div>
                     <div className='my-3'>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit quod iste placeat id quisquam ad tempore modi enim doloribus fuga ipsa, in vel recusandae reiciendis! Excepturi architecto officiis aliquid dolores ut id voluptates consectetur quis debitis corporis, ea dolorum cupiditate dignissimos, doloremque, natus fuga eius iure reprehenderit alias! Iste totam quia eaque consequatur animi enim aperiam accusamus impedit sit nisi, cupiditate earum architecto magnam laborum voluptas maiores?

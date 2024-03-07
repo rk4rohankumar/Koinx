@@ -28,20 +28,20 @@ export const teamData = [
 ];
 
 
-// export const aboutBitcoinCardData = [
-//     {
-//         backgroundColor: 'blue',
-//         imageSrc: 'https://i.ibb.co/Yp0ShQK/images.png',
-//         heading1: 'Calculate your profit',
-//         buttonLabel: 'Check now',
-//     },
-//     {
-//         backgroundColor: 'red',
-//         imageSrc: 'https://i.ibb.co/Yp0ShQK/images.png',
-//         heading1: 'Calculate your profit',
-//         buttonLabel: 'Check now',
-//     },
-// ];
+export const aboutBitcoinCardData = [
+    {
+        backgroundColor: 'blue',
+        imageSrc: 'https://i.ibb.co/Yp0ShQK/images.png',
+        heading1: 'Calculate your profit',
+        buttonLabel: 'Check now',
+    },
+    {
+        backgroundColor: 'red',
+        imageSrc: 'https://i.ibb.co/Yp0ShQK/images.png',
+        heading1: 'Calculate your profit',
+        buttonLabel: 'Check now',
+    },
+];
 
 export const doughnutData = {
     labels: ["Crowdsale Investors: 80%", "Foundation: 20%"],
