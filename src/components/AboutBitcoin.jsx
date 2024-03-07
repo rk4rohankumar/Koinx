@@ -20,13 +20,13 @@ const AboutBitcoin = () => {
                 </div>
                 <div className='mb-8  border-b-2 pb-5'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae cupiditate temporibus fugiat assumenda quas ad harum id! Consectetur dolores velit alias ratione explicabo debitis, ea consequuntur iste eligendi optio recusandae illum voluptatibus voluptates quam doloremque temporibus, nihil tempore repudiandae exercitationem rem distinctio asperiores adipisci corporis.
                 </div>
-                <div className='  '>
+                <div className=' '>
                     <div className='mx-3 mb-3 '>
                         <h1 className='text-3xl'>Already holding Bitcoin?</h1>
                     </div>
-                    <div className='flex border-b-2 pb-3'>
-                    <AboutBitcoinCard backgroundColor={'blue'} imageSrc={"https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/advisor/au/wp-content/uploads/2023/08/piggybank-sK-ziQvKGsk-unsplash-scaled-e1691736853555.jpg"} heading1={"Calculate your Profits"} buttonLabel={"Check now"} />
-                        <AboutBitcoinCard backgroundColor={'red'} imageSrc={"https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/advisor/au/wp-content/uploads/2023/08/piggybank-sK-ziQvKGsk-unsplash-scaled-e1691736853555.jpg"} heading1={"Calculate your tax liability"} buttonLabel={"Check now"} />
+                    <div className='flex border-b-2 pb-3 grid sm:grid-cols-1 lg:grid-cols-2'>
+                        <AboutCard props ={aboutBitcoinCardData} />
+                        <AboutCard props ={aboutBitcoinCardData}/>
                     </div>
                     <div className='my-3'>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit quod iste placeat id quisquam ad tempore modi enim doloribus fuga ipsa, in vel recusandae reiciendis! Excepturi architecto officiis aliquid dolores ut id voluptates consectetur quis debitis corporis, ea dolorum cupiditate dignissimos, doloremque, natus fuga eius iure reprehenderit alias! Iste totam quia eaque consequatur animi enim aperiam accusamus impedit sit nisi, cupiditate earum architecto magnam laborum voluptas maiores?

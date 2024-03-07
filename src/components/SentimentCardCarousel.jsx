@@ -1,10 +1,34 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const CardCarousel = ({ cards }) => {
     const sliderRef = useRef(null);
+    const [slidesToShow, setSlidesToShow] = useState(1);
+
+    useEffect(() => {
+        const handleResize = () => {
+            const windowWidth = window.innerWidth;
+
+            if (windowWidth >= 768) {
+                setSlidesToShow(2);
+            } else {
+                setSlidesToShow(1);
+            }
+        };
+
+        // Initial call to handleResize
+        handleResize();
+
+        // Add event listener for window resize
+        window.addEventListener('resize', handleResize);
+
+        // Clean up event listener on component unmount
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     const CustomArrow = ({ direction, ...props }) => (
         <div {...props} className={`slick-arrow-custom slick-${direction}-custom`}>
@@ -17,24 +41,23 @@ const CardCarousel = ({ cards }) => {
         infinite: true,
         speed: 500,
         slidesToScroll: 1,
-        slidesToShow: 1,
+        slidesToShow: slidesToShow,
         prevArrow: <CustomArrow direction="prev" />,
         nextArrow: <CustomArrow direction="next" />,
-        
     };
 
     return (
         <div className="max-w-full md:max-w-4xl mx-auto relative">
             <Slider {...carouselSettings} ref={sliderRef}>
                 {cards.map((card, index) => (
-                    <div key={index} className="w-full p-4">
+                    <div key={index} className={`w-full ${slidesToShow === 1 ? 'p-4' : 'p-2'}`}>
                         <div className="max-w-full rounded overflow-hidden shadow-lg relative flex p-4" style={{ backgroundColor: card.bgColor, marginBottom: '16px' }}>
                             <div className="relative">
                                 <img className="rounded-full p-2 max-w-20 h-auto top-0 left-0" src={card.image} alt={`Card ${index + 1}`} />
                             </div>
-                            <div className="ml-4 flex flex-col">
+                            <div className={`ml-${slidesToShow === 1 ? '4' : '2'} flex flex-col`}>
                                 <div className="font-bold text-xl mb-2 mt-2">{card.title}</div>
-                                <p className="text-gray-700 text-base mt-1">{card.description}</p>
+                                <p className={`text-gray-700 text-base mt-1 ${slidesToShow === 1 ? 'max-w-xs' : 'max-w-md'}`}>{card.description}</p>
                             </div>
                         </div>
                     </div>
